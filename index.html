@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Express — an interactive development environment for lightblue, the formal Japanese NLI system. Tame the branching problem step by step.">
+  <meta property="og:title" content="Express — Interactive IDE for lightblue">
+  <meta property="og:description" content="Tame the branching problem in formal Japanese NLI. Built in Haskell, BSD 3-Clause.">
+  <meta property="og:type" content="website">
+  <title>Express — Interactive IDE for lightblue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ═══ Navigation ═══ -->
+<header class="site-header" role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="nav-logo" href="#hero" aria-label="Express — home">
+      <span class="nav-logo-mark" aria-hidden="true">⬡</span> Express
+    </a>
+    <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu" role="list">
+      <li><a class="nav-link" href="#features">Features</a></li>
+      <li><a class="nav-link" href="#demo">Demo</a></li>
+      <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
+      <li><a class="nav-link" href="#install">Install</a></li>
+    </ul>
+    <a class="btn btn-nav-github" href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">
+      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ═══ Hero ═══ -->
+<section id="hero" class="hero-section" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="lang-badge">Haskell</span>
+        <span class="license-pill">BSD 3-Clause</span>
+      </div>
+      <h1 id="hero-title" class="hero-title">Express</h1>
+      <p class="hero-sub">
+        An interactive development environment for
+        <a href="https://github.com/DaisukeBekki/lightblue" class="hero-link">lightblue</a>,
+        the formal Japanese NLI system built on CCG and Dependent Type Semantics.
+      </p>
+      <p class="hero-tagline">
+        Stop scrolling through hundreds of paths.<br>
+        Select one branch at a time.
+      </p>
+
+      <div class="install-cmd" aria-label="Launch command">
+        <span class="install-prompt" aria-hidden="true">$</span>
+        <code id="install-code">stack exec express</code>
+        <button class="copy-btn" aria-label="Copy command" data-copy="stack exec express">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span class="copy-label">Copy</span>
+        </button>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="https://github.com/DaisukeBekki/lightblue" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+        <a href="#demo" class="btn btn-outline-inv">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          Watch Demo
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats" aria-label="Key results">
+      <div class="stat-item">
+        <span class="stat-num">96%</span>
+        <span class="stat-desc">fewer paths explored</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-num">4× faster</span>
+        <span class="stat-desc">task completion</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <span class="stat-num">~12×</span>
+        <span class="stat-desc">faster debug turnaround</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Features ═══ -->
+<section id="features" class="section" aria-labelledby="features-title">
+  <div class="container">
+    <h2 id="features-title" class="section-title">What Express does</h2>
+    <p class="section-desc">
+      lightblue's inference pipeline — CCG parsing, type checking, proof search — produces hundreds of
+      disambiguation paths. Express gives you interactive control at every step.
+    </p>
+
+    <div class="features-grid">
+
+      <article class="feature-card" aria-label="Investigate: Substring Analysis">
+        <div class="feature-icon" aria-hidden="true">🔍</div>
+        <h3>Substring Analysis</h3>
+        <p>
+          Click any span of the input to instantly view all CCG parsing candidates for that substring.
+          Diagnose local parsing issues without re-running the full pipeline.
+        </p>
+        <figure>
+          <img
+            src="assets/feature_substring.png"
+            alt="Substring 'Taro ran' is selected; 32 parsing candidates appear instantly as collapsible cards, each showing a CCG syntactic type and DTS semantic representation."
+            class="feature-img lightbox-trigger"
+            loading="lazy"
+            width="800" height="500"
+          >
+          <figcaption>32 candidates for "Taro ran" — instant, no recomputation</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature-card" aria-label="Explore: Interactive Branch Selection">
+        <div class="feature-icon" aria-hidden="true">🌿</div>
+        <h3>Interactive Branch Selection</h3>
+        <p>
+          Syntactic structures and type-checking outcomes are shown as collapsible cards.
+          Pick one at each stage. Haskell's lazy evaluation means you only compute what you actually look at.
+        </p>
+        <figure>
+          <img
+            src="assets/feature_branch.jpg"
+            alt="Multiple syntactic structure cards displayed side-by-side; the selected card is highlighted in blue before proceeding to type checking."
+            class="feature-img lightbox-trigger"
+            loading="lazy"
+            width="800" height="500"
+          >
+          <figcaption>Select one card, proceed — no exponential blowup</figcaption>
+        </figure>
+      </article>
+
+      <article class="feature-card" aria-label="Share: Proof Search Query Export">
+        <div class="feature-icon" aria-hidden="true">📤</div>
+        <h3>Proof Search Query Export</h3>
+        <p>
+          Found a proof search failure? Export the exact query as a file directly loadable by
+          <em>wani</em>. Share a precise, reproducible artifact instead of a screenshot.
+        </p>
+        <figure>
+          <img
+            src="assets/feature_export.png"
+            alt="Export screen showing the proof search query in DTS format with a Save button to download a wani-loadable file."
+            class="feature-img lightbox-trigger"
+            loading="lazy"
+            width="800" height="500"
+          >
+          <figcaption>One-click export → shareable, directly loadable file</figcaption>
+        </figure>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Demo ═══ -->
+<section id="demo" class="section alt-section" aria-labelledby="demo-title">
+  <div class="container">
+    <h2 id="demo-title" class="section-title">See it in action</h2>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <h3>Quick look <span class="badge">90 sec</span></h3>
+        <div
+          class="video-container"
+          data-video="assets/demo90s.mp4"
+          data-label="Express quick look (90 seconds)"
+          role="region"
+          aria-label="Quick look video (90 seconds)"
+        ></div>
+        <ul class="what-list">
+          <li>Interactive branch selection end-to-end</li>
+          <li>Substring analysis for a single span</li>
+          <li>Proof query export in one click</li>
+        </ul>
+      </div>
+
+      <div class="video-card">
+        <h3>Full walkthrough <span class="badge">3 min</span></h3>
+        <div
+          class="video-container"
+          data-video="assets/demo3min.mp4"
+          data-label="Express full walkthrough (3 minutes)"
+          role="region"
+          aria-label="Full walkthrough video (3 minutes)"
+        ></div>
+        <ul class="what-list">
+          <li>Grammar development workflow end-to-end</li>
+          <li>Diagnosing a real proof search failure</li>
+          <li>Export → share → fix cycle with <em>wani</em></li>
+          <li>Side-by-side vs. exhaustive output</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ How It Works ═══ -->
+<section id="how-it-works" class="section" aria-labelledby="how-title">
+  <div class="container">
+    <h2 id="how-title" class="section-title">How it works</h2>
+    <p class="section-desc">
+      Express wraps the lightblue pipeline in an interactive shell.
+      Two explicit selection points prevent multiplicative branching.
+    </p>
+
+    <div class="pipeline" aria-label="Inference pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-num" aria-hidden="true">1</div>
+        <h3>CCG/DTS Parsing</h3>
+        <p>Multiple syntactic structures arise from PP-attachment ambiguities or alternative CCG types. DTS semantics is composed for each.</p>
+        <span class="pipeline-tag pipeline-tag--select">You select here</span>
+      </div>
+      <div class="pipeline-arrow" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num" aria-hidden="true">2</div>
+        <h3>Type Checking &amp; Anaphora Resolution</h3>
+        <p>Underspecified terms trigger anaphora resolution, yielding multiple type-checking outcomes. Each sentence's type context propagates forward.</p>
+        <span class="pipeline-tag pipeline-tag--select">You select here</span>
+      </div>
+      <div class="pipeline-arrow" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num pipeline-num--out" aria-hidden="true">✓</div>
+        <h3>Proof Search <em>(wani)</em></h3>
+        <p>The theorem prover runs on the path you selected. Export the query at any point — even before it finishes.</p>
+        <span class="pipeline-tag pipeline-tag--output">YES / NO / UNKNOWN</span>
+      </div>
+    </div>
+
+    <div class="branching-note">
+      <figure>
+        <img
+          src="assets/figure_branching.jpg"
+          alt="Diagram: without Express, k sentences × i syntactic structures × j type-checking outcomes gives 2·(i·j)^k proof search candidates. With Express, the user selects one path, so no branching occurs."
+          class="figure-img lightbox-trigger"
+          loading="lazy"
+          width="1200" height="480"
+        >
+        <figcaption>
+          Without Express: up to <strong>2·(i·j)<sup>k</sup></strong> candidates (Problem A: 260 paths, timed out at 120s).
+          With Express: only the paths you actually navigate are computed.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Install ═══ -->
+<section id="install" class="section alt-section" aria-labelledby="install-title">
+  <div class="container">
+    <h2 id="install-title" class="section-title">Get started</h2>
+
+    <div class="install-grid">
+
+      <div class="install-block">
+        <h3>Requirements</h3>
+        <ul class="req-list">
+          <li><span class="req-name">GHC</span> <span class="req-ver">9.x</span></li>
+          <li><span class="req-name">Stack</span> <span class="req-ver">latest</span></li>
+          <li><span class="req-name">Juman++</span> <span class="req-ver">Japanese tokenizer</span></li>
+          <li><span class="req-name">KNP</span> <span class="req-ver">Japanese parser</span></li>
+        </ul>
+      </div>
+
+      <div class="install-block install-block--wide">
+        <h3>Build &amp; run</h3>
+        <pre class="code-block" aria-label="Shell commands to build and run Express"><code><span class="tok-comment"># Clone</span>
+git clone https://github.com/DaisukeBekki/lightblue
+cd lightblue
+
+<span class="tok-comment"># Build (first run takes a while)</span>
+stack build
+
+<span class="tok-comment"># Launch Express</span>
+stack exec express
+
+<span class="tok-comment"># Open http://localhost:3000</span></code></pre>
+        <p class="install-note">
+          Full setup instructions (Juman++, KNP, dictionary paths):
+          see <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">README on GitHub</a>.
+        </p>
+      </div>
+
+      <div class="install-block">
+        <h3>License</h3>
+        <p>
+          Express is free and open-source software, released under the
+          <strong>BSD 3-Clause</strong> license.
+          Contributions welcome.
+        </p>
+        <a href="https://github.com/DaisukeBekki/lightblue" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top:.75rem; display:inline-flex;">
+          View source on GitHub
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ Footer ═══ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>Links</strong>
+      <ul class="footer-links">
+        <li><a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">GitHub (lightblue)</a></li>
+        <li><a href="#demo">Demo Videos</a></li>
+        <li><a href="#install">Get Started</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-copy">
+    Express is part of the <a href="https://github.com/DaisukeBekki/lightblue">lightblue</a> project.
+    BSD 3-Clause License.
+  </p>
+</footer>
+
+<!-- ═══ Lightbox ═══ -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1" hidden>
+  <button class="lightbox-close" aria-label="Close image viewer">
+    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="lightbox-content" aria-live="polite">
+    <img class="lightbox-img" src="" alt="">
+  </div>
+  <p class="lightbox-caption"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
