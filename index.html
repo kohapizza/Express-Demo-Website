@@ -25,9 +25,10 @@
     </button>
     <ul class="nav-menu" id="nav-menu" role="list">
       <li><a class="nav-link" href="#features">Features</a></li>
+      <li><a class="nav-link" href="#install">Install</a></li>
       <li><a class="nav-link" href="#demo">Demo</a></li>
       <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
-      <li><a class="nav-link" href="#install">Install</a></li>
+      <li><a class="nav-link" href="#usage">Usage</a></li>
     </ul>
     <a class="btn btn-nav-github" href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -57,16 +58,7 @@
         Select one branch at a time.
       </p>
 
-      <div class="install-cmd" aria-label="Launch command">
-        <span class="install-prompt" aria-hidden="true">$</span>
-        <code id="install-code">docker run -p 3000:3000 kohapizza/express</code>
-        <button class="copy-btn" aria-label="Copy command" data-copy="docker run -p 3000:3000 kohapizza/express">
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-          <span class="copy-label">Copy</span>
-        </button>
-      </div>
-
-      <div class="hero-ctas">
+<div class="hero-ctas">
         <a href="https://github.com/DaisukeBekki/lightblue" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           View on GitHub
@@ -169,6 +161,70 @@
   </div>
 </section>
 
+<!-- ═══ Install ═══ -->
+<section id="install" class="section alt-section" aria-labelledby="install-title">
+  <div class="container">
+    <h2 id="install-title" class="section-title">Get started</h2>
+
+    <div class="install-grid">
+
+      <div class="install-block">
+        <h3>Requirements</h3>
+        <ul class="req-list">
+          <li><span class="req-name">GHC</span> <span class="req-ver">8.10.7</span></li>
+          <li><span class="req-name">Stack</span> <span class="req-ver">latest</span></li>
+          <li><span class="req-name">KWJA</span> <span class="req-ver">pip install kwja</span></li>
+          <li><span class="req-name">JSeM data</span> <span class="req-ver">github.com/DaisukeBekki/JSeM</span></li>
+        </ul>
+      </div>
+
+      <div class="install-block install-block--wide">
+        <h3>Build &amp; run</h3>
+        <pre class="code-block" aria-label="Build and run commands"><code>git clone https://github.com/DaisukeBekki/lightblue
+cd lightblue
+
+<span class="tok-comment"># Clone JSeM dataset</span>
+git clone https://github.com/DaisukeBekki/JSeM
+
+<span class="tok-comment"># Install KWJA (morphological analyzer)</span>
+pip install kwja
+
+<span class="tok-comment"># Build (first run takes ~30 min)</span>
+stack build
+
+<span class="tok-comment"># Set environment variable (trailing slash required)</span>
+export LIGHTBLUE=$(pwd)/
+
+<span class="tok-comment"># Launch Express</span>
+./lightblue jp jsem --jsemid 720 --nsample 1 \
+  -s express \
+  -f JSeM/data/v1.0/Verbs.xml \
+  --nparse 4 --ntypecheck 4 --nproof 1 \
+  --maxdepth 5 --depth 0
+
+<span class="tok-comment"># → http://localhost:3000</span></code></pre>
+        <p class="install-note">
+          Full setup instructions:
+          see <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">README on GitHub</a>.
+        </p>
+      </div>
+
+      <div class="install-block">
+        <h3>License</h3>
+        <p>
+          Express is free and open-source software, released under the
+          <strong>BSD 3-Clause</strong> license.
+        </p>
+        <a href="https://github.com/DaisukeBekki/lightblue" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top:.75rem; display:inline-flex;">
+          View source on GitHub
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ Demo ═══ -->
 <section id="demo" class="section alt-section" aria-labelledby="demo-title">
   <div class="container">
@@ -240,118 +296,152 @@
   </div>
 </section>
 
-<!-- ═══ Install ═══ -->
-<section id="install" class="section alt-section" aria-labelledby="install-title">
+<!-- ═══ Usage ═══ -->
+<section id="usage" class="section" aria-labelledby="usage-title">
   <div class="container">
-    <h2 id="install-title" class="section-title">Get started</h2>
+    <h2 id="usage-title" class="section-title">How to use Express</h2>
+    <p class="section-desc">
+      A step-by-step walkthrough for first-time users.
+      Express wraps lightblue's inference pipeline in an interactive shell —
+      you navigate it one branch at a time.
+    </p>
 
-    <!-- Tab switcher -->
-    <div class="install-tabs" role="tablist" aria-label="Installation method">
-      <button class="tab-btn tab-btn--active" role="tab" aria-selected="true"  aria-controls="tab-docker" id="tab-docker-btn">
-        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.186.186 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.185.186v1.887c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.271.747.574 1.5 1.005 2.096 1.489 2.095 3.495 3.141 6.55 3.141 1.327.005 2.648-.224 3.898-.675a11.5 11.5 0 003.233-1.803 9.919 9.919 0 002.145-2.638c.917-1.548 1.462-3.282 1.61-5.007h.14c.864 0 1.396-.35 1.692-.643.294-.292.484-.648.572-1.035z"/></svg>
-        Docker <span class="tab-recommended">recommended</span>
-      </button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-stack" id="tab-stack-btn">
-        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        Build from source
-      </button>
-    </div>
+    <ol class="usage-steps">
 
-    <!-- Docker tab -->
-    <div id="tab-docker" class="tab-panel" role="tabpanel" aria-labelledby="tab-docker-btn">
-      <div class="install-grid">
-
-        <div class="install-block install-block--wide">
-          <h3>Run with Docker</h3>
-          <p class="install-block-desc">No Haskell toolchain or Japanese NLP tools required — everything is bundled in the image.</p>
-          <pre class="code-block" aria-label="Docker run command"><code><span class="tok-comment"># Pull and run (first pull: ~3 GB, CPU-only)</span>
-docker run -p 3000:3000 kohapizza/express
-
-<span class="tok-comment"># Open in browser</span>
-<span class="tok-comment"># → http://localhost:3000</span>
-
-<span class="tok-comment"># Different JSeM problem ID</span>
-docker run -p 3000:3000 kohapizza/express --jsemid 207</code></pre>
-          <div class="docker-note">
-            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Uses <strong>KWJA</strong> (default morphological analyzer) with CPU-only PyTorch.
-            Build from source to use JUMAN++ or JUMAN instead.
+      <li class="usage-step">
+        <div class="step-header">
+          <span class="step-num" aria-hidden="true">1</span>
+          <div class="step-text">
+            <h3>Launch Express from the command line</h3>
+            <p>
+              To run NLI inference, you need a <strong>JSeM-format XML file</strong> passed via the <code>-f</code> flag.
+              This file defines the premise–hypothesis pairs Express will work on.
+              Use <code>--jsemid</code> to select a specific problem from the file by its ID.
+              Express starts a local web server and automatically opens it in your browser.
+            </p>
           </div>
         </div>
+        <figure class="step-figure">
+          <img
+            src="assets/usage_step1.png"
+            alt="Terminal output showing the Express launch command with --jsemid flag. The server starts and outputs a localhost URL."
+            class="step-img lightbox-trigger"
+            loading="lazy"
+            width="900" height="450"
+          >
+          <figcaption>Launch Express from the terminal — the server starts and opens at <code>http://localhost:3000</code>.</figcaption>
+        </figure>
+      </li>
 
-        <div class="install-block">
-          <h3>Build the image yourself</h3>
-          <pre class="code-block" aria-label="Docker build commands"><code>git clone https://github.com/DaisukeBekki/lightblue
-cd lightblue
-
-<span class="tok-comment"># Build (~30–60 min first time)</span>
-docker build -t express .
-
-docker run -p 3000:3000 express</code></pre>
-          <p class="install-note">
-            Source: <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">github.com/DaisukeBekki/lightblue</a>
-          </p>
+      <li class="usage-step">
+        <div class="step-header">
+          <span class="step-num" aria-hidden="true">2</span>
+          <div class="step-text">
+            <h3>The browser opens automatically</h3>
+            <p>
+              Once Express starts, it automatically opens
+              <code>http://localhost:3000</code> in your browser.
+              The page shows all CCG parse candidates for each sentence in the NLI problem —
+              premise sentences on the left, hypothesis on the right.
+              Each candidate card displays its score, CCG syntactic type, and DTS semantic representation.
+            </p>
+          </div>
         </div>
+        <figure class="step-figure">
+          <img
+            src="assets/usage_step2.png"
+            alt="The Express browser interface showing CCG parse candidate cards for premise and hypothesis sentences side by side. Each card has a score, a typecheck button, and a DTS semantic formula."
+            class="step-img lightbox-trigger"
+            loading="lazy"
+            width="900" height="450"
+          >
+          <figcaption>The Express interface — CCG parse candidates for each sentence, shown side by side.</figcaption>
+        </figure>
+      </li>
 
-      </div>
-    </div>
-
-    <!-- Stack tab -->
-    <div id="tab-stack" class="tab-panel tab-panel--hidden" role="tabpanel" aria-labelledby="tab-stack-btn">
-      <div class="install-grid">
-
-        <div class="install-block">
-          <h3>Requirements</h3>
-          <ul class="req-list">
-            <li><span class="req-name">GHC</span> <span class="req-ver">8.10.7</span></li>
-            <li><span class="req-name">Stack</span> <span class="req-ver">latest</span></li>
-            <li><span class="req-name">KWJA</span> <span class="req-ver">pip install kwja</span></li>
-            <li><span class="req-name">JSeM data</span> <span class="req-ver">github.com/DaisukeBekki/JSeM</span></li>
-          </ul>
+      <li class="usage-step">
+        <div class="step-header">
+          <span class="step-num" aria-hidden="true">3</span>
+          <div class="step-text">
+            <h3>Select a syntactic structure</h3>
+            <p>
+              CCG parsing may produce multiple syntactic structures (e.g. due to
+              prepositional phrase attachment ambiguity).
+              Express displays each candidate as a collapsible card with its CCG type and
+              DTS semantic representation.
+              Click <strong>Typecheck</strong> on the structure you want to pursue.
+            </p>
+          </div>
         </div>
+        <figure class="step-figure">
+          <img
+            src="assets/usage_step3.png"
+            alt="The Express interface with multiple CCG parse candidate cards. The top card is highlighted with a red box around the typecheck button labeled 'click'. A selected card below it is highlighted in blue with a 'Selected' badge and shows the type-checking result."
+            class="step-img lightbox-trigger"
+            loading="lazy"
+            width="900" height="500"
+          >
+          <figcaption>Click <strong>typecheck</strong> on the candidate you want to pursue — the selected card is highlighted in blue.</figcaption>
+        </figure>
+      </li>
 
-        <div class="install-block install-block--wide">
-          <h3>Build &amp; run</h3>
-          <pre class="code-block" aria-label="Stack build and run commands"><code>git clone https://github.com/DaisukeBekki/lightblue
-cd lightblue
-
-<span class="tok-comment"># Clone JSeM dataset</span>
-git clone https://github.com/DaisukeBekki/JSeM
-
-<span class="tok-comment"># Install KWJA (morphological analyzer)</span>
-pip install kwja
-
-<span class="tok-comment"># Build (first run takes ~30 min)</span>
-stack build
-
-<span class="tok-comment"># Set environment variable (trailing slash required)</span>
-export LIGHTBLUE=$(pwd)/
-
-<span class="tok-comment"># Launch Express</span>
-./lightblue jp jsem --jsemid 720 --nsample 1 \
-  -s express \
-  -f JSeM/data/v1.0/Verbs.xml \
-  --nparse 4 --ntypecheck 4 --nproof 1 \
-  --maxdepth 5 --depth 0
-
-<span class="tok-comment"># → http://localhost:3000</span></code></pre>
-          <p class="install-note">
-            Full setup (LIGHTBLUE env var, JSeM path):
-            see <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">README on GitHub</a>.
-          </p>
+      <li class="usage-step">
+        <div class="step-header">
+          <span class="step-num" aria-hidden="true">4</span>
+          <div class="step-text">
+            <h3>Select a type-checking outcome</h3>
+            <p>
+              Type checking under Dependent Type Theory may yield multiple outcomes
+              when a representation contains underspecified anaphoric terms.
+              Each possible anaphora resolution is shown as a separate branch.
+              Select the one that matches your intended reading (highlighted in blue),
+              then click <strong>Proof Search</strong>.
+            </p>
+          </div>
         </div>
+        <figure class="step-figure">
+          <img
+            src="assets/usage_step4.png"
+            alt="The Express interface after typechecking. On the left, the selected parse card is highlighted in blue. On the right, the hypothesis side shows a type-checking result card with Proof found (POS) badge. The proofsearch button in the top-right corner is highlighted with a red box."
+            class="step-img lightbox-trigger"
+            loading="lazy"
+            width="900" height="500"
+          >
+          <figcaption>After typechecking, click <strong>proofsearch</strong> (top right) to run the theorem prover on the selected path.</figcaption>
+        </figure>
+      </li>
 
-      </div>
-    </div>
+      <li class="usage-step">
+        <div class="step-header">
+          <span class="step-num" aria-hidden="true">5</span>
+          <div class="step-text">
+            <h3>View the result — and export if needed</h3>
+            <p>
+              The theorem prover <em>wani</em> runs on the path you selected and returns
+              <strong>YES</strong>, <strong>NO</strong>, or <strong>UNKNOWN</strong>.
+              If the result is unexpected, click <strong>Query (pos)</strong> to export the exact
+              proof search query as a file directly loadable by <em>wani</em>.
+              Share this file with the theorem prover developer for collaborative debugging —
+              no need to manually reconstruct the query from scratch.
+            </p>
+          </div>
+        </div>
+        <figure class="step-figure">
+          <img
+            src="assets/usage_step5.png"
+            alt="The Proof Search result page showing Yes with Premise 1 and Hypothesis. Query (pos) and Query (neg) sections each show the DTS proof search query with a save button. Results (pos) shows Done (1) and Results (neg) shows Done (0)."
+            class="step-img lightbox-trigger"
+            loading="lazy"
+            width="900" height="400"
+          >
+          <figcaption>Proof Search result — <strong>Yes</strong>. Click <strong>保存</strong> next to Query (pos) or Query (neg) to export the DTS proof search query as a file loadable by <em>wani</em>.</figcaption>
+        </figure>
+      </li>
 
-    <div class="install-footer">
-      <span class="license-pill-inline">BSD 3-Clause</span>
-      Express is free and open-source.
-      <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">View source on GitHub →</a>
-    </div>
-
+    </ol>
   </div>
 </section>
+
 
 </main>
 

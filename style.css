@@ -430,7 +430,7 @@ figcaption code {
 ══════════════════════════════════════════ */
 .install-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 1.5rem;
   align-items: start;
 }
@@ -440,7 +440,7 @@ figcaption code {
   box-shadow: var(--shadow);
   display: flex; flex-direction: column; gap: .75rem;
 }
-.install-block--wide { grid-column: span 2; }
+.install-block--wide { grid-column: auto; }
 .install-block h3 { font-size: 1rem; }
 .install-block p { font-size: .875rem; color: var(--text-muted); }
 
@@ -481,6 +481,84 @@ figcaption code {
   border-top: 1px solid #1F2937; padding-top: 1.25rem;
 }
 .footer-copy a { color: #6B7280; }
+
+/* ══════════════════════════════════════════
+   Usage steps
+══════════════════════════════════════════ */
+.usage-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  counter-reset: step;
+}
+
+.usage-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text-inv);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px var(--accent-light);
+  margin-top: .15rem;
+}
+
+.step-text h3 {
+  font-size: 1.15rem;
+  margin-bottom: .5rem;
+}
+
+.step-text p {
+  font-size: .9rem;
+  color: var(--text-muted);
+  max-width: 68ch;
+  line-height: 1.7;
+}
+
+.step-text code {
+  font-family: var(--font-mono);
+  font-size: .85em;
+  background: var(--border-light);
+  padding: .1rem .35rem;
+  border-radius: 3px;
+}
+
+.step-figure {
+  margin-left: calc(44px + 1.25rem);
+}
+
+.step-img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  cursor: zoom-in;
+  transition: box-shadow .2s;
+}
+.step-img:hover { box-shadow: var(--shadow-lg); }
+
+@media (max-width: 600px) {
+  .step-figure { margin-left: 0; }
+  .usage-steps { gap: 3rem; }
+}
 
 /* ══════════════════════════════════════════
    Install tabs
@@ -597,7 +675,8 @@ figcaption code {
     width: 24px; height: 24px; align-self: center;
   }
 
-  .install-block--wide { grid-column: span 1; }
+  .install-grid { grid-template-columns: 1fr; }
+  .install-block--wide { grid-column: auto; }
 }
 
 @media (max-width: 480px) {
