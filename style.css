@@ -325,6 +325,13 @@ figcaption code {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
+.video-single .video-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
 .video-card {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow);
@@ -474,6 +481,61 @@ figcaption code {
   border-top: 1px solid #1F2937; padding-top: 1.25rem;
 }
 .footer-copy a { color: #6B7280; }
+
+/* ══════════════════════════════════════════
+   Install tabs
+══════════════════════════════════════════ */
+.install-tabs {
+  display: flex; gap: .5rem; margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0;
+}
+.tab-btn {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .6rem 1.1rem;
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-size: .875rem; font-weight: 600; color: var(--text-muted);
+  cursor: pointer; border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: color .15s, border-color .15s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn--active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-recommended {
+  font-size: .68rem; font-weight: 700;
+  background: var(--green-bg); color: var(--green);
+  padding: .15rem .45rem; border-radius: 99px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+
+.tab-panel { display: block; }
+.tab-panel--hidden { display: none; }
+
+.install-block-desc { font-size: .875rem; color: var(--text-muted); margin-bottom: .75rem; }
+
+.docker-note {
+  display: flex; align-items: flex-start; gap: .5rem;
+  background: var(--accent-light); border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: .65rem .85rem; font-size: .8rem; color: var(--text-muted);
+  margin-top: .75rem;
+}
+.docker-note svg { flex-shrink: 0; color: var(--accent); margin-top: 1px; }
+
+.install-footer {
+  margin-top: 2rem; padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: .85rem; color: var(--text-muted);
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+}
+.license-pill-inline {
+  font-family: var(--font-mono); font-size: .72rem; font-weight: 700;
+  background: var(--green-bg); color: var(--green);
+  border: 1px solid #BBF7D0;
+  padding: .2rem .55rem; border-radius: 99px;
+}
+.install-footer a { color: var(--accent); font-weight: 500; }
 
 /* ══════════════════════════════════════════
    Lightbox

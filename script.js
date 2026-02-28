@@ -20,6 +20,7 @@ function initVideos() {
     const video = document.createElement('video');
     video.controls = true;
     video.preload  = 'metadata';
+    video.muted    = container.dataset.muted === 'true';
     video.setAttribute('aria-label', label);
     video.style.width  = '100%';
     video.style.height = '100%';
@@ -200,6 +201,31 @@ function initActiveNav() {
 }
 
 /* ──────────────────────────────────────────
+   Install tab switcher
+────────────────────────────────────────── */
+function initTabs() {
+  document.querySelectorAll('[role="tablist"]').forEach(tablist => {
+    const tabs   = tablist.querySelectorAll('[role="tab"]');
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('tab-btn--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(p => p.classList.add('tab-panel--hidden'));
+
+        tab.classList.add('tab-btn--active');
+        tab.setAttribute('aria-selected', 'true');
+        const panel = document.getElementById(tab.getAttribute('aria-controls'));
+        if (panel) panel.classList.remove('tab-panel--hidden');
+      });
+    });
+  });
+}
+
+/* ──────────────────────────────────────────
    Copy-to-clipboard buttons
 ────────────────────────────────────────── */
 function initCopyButtons() {
@@ -239,4 +265,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initActiveNav();
   initCopyButtons();
+  initTabs();
 });
