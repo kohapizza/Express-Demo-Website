@@ -685,3 +685,27 @@ figcaption code {
   .stat-divider { display: none; }
   .install-cmd { font-size: .8rem; }
 }
+
+/* Live Demo button & blink animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+.btn-live-demo {
+  display: inline-flex;
+  align-items: center;
+  padding: .55rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: .95rem;
+  background: #fff;
+  color: #1e293b;
+  border: 2px solid rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.btn-live-demo:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}

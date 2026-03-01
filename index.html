@@ -25,8 +25,8 @@
     </button>
     <ul class="nav-menu" id="nav-menu" role="list">
       <li><a class="nav-link" href="#features">Features</a></li>
-      <li><a class="nav-link" href="#install">Install</a></li>
       <li><a class="nav-link" href="#demo">Demo</a></li>
+      <li><a class="nav-link" href="#install">Install</a></li>
       <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
       <li><a class="nav-link" href="#usage">Usage</a></li>
     </ul>
@@ -66,6 +66,10 @@
         <a href="#demo" class="btn btn-outline-inv">
           <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
           Watch Demo
+        </a>
+        <a href="#live-demo" class="btn btn-live-demo">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#f00;margin-right:6px;animation:blink 1.2s infinite;"></span>
+          Live Demo
         </a>
       </div>
     </div>
@@ -161,6 +165,42 @@
   </div>
 </section>
 
+<!-- ═══ Demo ═══ -->
+<section id="demo" class="section alt-section" aria-labelledby="demo-title">
+  <div class="container">
+    <h2 id="demo-title" class="section-title">See it in action</h2>
+
+    <div class="video-single">
+      <div class="video-container"
+        data-video="assets/express_demo.mp4"
+        data-muted="true"
+        data-label="Express demo"
+        role="region"
+        aria-label="Express demo video"
+      ></div>
+    </div>
+
+    <div id="live-demo" style="margin-top:3rem;margin-left:calc(50% - 50vw + 1.5rem);margin-right:calc(50% - 50vw + 1.5rem);">
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid #e2e8f0;border-radius:999px;padding:4px 16px 4px 10px;font-size:.85rem;color:#64748b;margin-bottom:.75rem;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:blink 1.2s infinite;"></span>
+          Running on Hugging Face Spaces
+        </span>
+        <h3 style="font-size:2rem;font-weight:700;margin:0;">Try it live</h3>
+        <p style="color:#64748b;margin:.5rem 0 0;">Interact with the real Express system — no installation needed.</p>
+      </div>
+      <iframe
+        src="https://kohapizza-express.hf.space/inference"
+        width="100%"
+        height="950"
+        frameborder="0"
+        allow="clipboard-write"
+        style="border-radius:12px;border:1px solid #e2e8f0;display:block;"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ Install ═══ -->
 <section id="install" class="section alt-section" aria-labelledby="install-title">
   <div class="container">
@@ -178,9 +218,26 @@
         </ul>
       </div>
 
-      <div class="install-block install-block--wide">
-        <h3>Build &amp; run</h3>
-        <pre class="code-block" aria-label="Build and run commands"><code>git clone https://github.com/DaisukeBekki/lightblue
+      <div class="install-block--wide" style="display:flex;flex-direction:column;gap:1.5rem;">
+
+        <div class="install-block">
+          <h3>Docker <span style="font-size:.75em;font-weight:400;color:var(--accent)">— easiest</span></h3>
+          <pre class="code-block" aria-label="Docker run command"><code><span class="tok-comment"># No build needed — pull and run in one command</span>
+docker run -p 3000:3000 lilkohapizza/express
+
+<span class="tok-comment"># → open http://localhost:3000/inference</span>
+
+<span class="tok-comment"># Try a different JSeM problem (valid IDs: 693–728, default: 720)</span>
+docker run -p 3000:3000 lilkohapizza/express --jsemid 702</code></pre>
+          <p class="install-note">
+            Requires <a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener noreferrer">Docker Desktop</a>.
+            Image: <a href="https://hub.docker.com/r/lilkohapizza/express" target="_blank" rel="noopener noreferrer">lilkohapizza/express</a>.
+          </p>
+        </div>
+
+        <div class="install-block">
+          <h3>Build &amp; run <span style="font-size:.75em;font-weight:400;color:#888">— from source</span></h3>
+          <pre class="code-block" aria-label="Build and run commands"><code>git clone https://github.com/DaisukeBekki/lightblue
 cd lightblue
 
 <span class="tok-comment"># Clone JSeM dataset</span>
@@ -202,11 +259,13 @@ export LIGHTBLUE=$(pwd)/
   --nparse 4 --ntypecheck 4 --nproof 1 \
   --maxdepth 5 --depth 0
 
-<span class="tok-comment"># → http://localhost:3000</span></code></pre>
-        <p class="install-note">
-          Full setup instructions:
-          see <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">README on GitHub</a>.
-        </p>
+<span class="tok-comment"># → http://localhost:3000/inference</span></code></pre>
+          <p class="install-note">
+            Full setup instructions:
+            see <a href="https://github.com/DaisukeBekki/lightblue" target="_blank" rel="noopener noreferrer">README on GitHub</a>.
+          </p>
+        </div>
+
       </div>
 
       <div class="install-block">
@@ -222,23 +281,6 @@ export LIGHTBLUE=$(pwd)/
 
     </div>
 
-  </div>
-</section>
-
-<!-- ═══ Demo ═══ -->
-<section id="demo" class="section alt-section" aria-labelledby="demo-title">
-  <div class="container">
-    <h2 id="demo-title" class="section-title">See it in action</h2>
-
-    <div class="video-single">
-      <div class="video-container"
-        data-video="assets/express_demo.mp4"
-        data-muted="true"
-        data-label="Express demo"
-        role="region"
-        aria-label="Express demo video"
-      ></div>
-    </div>
   </div>
 </section>
 
