@@ -98,7 +98,7 @@
   <div class="container">
     <h2 id="features-title" class="section-title">What Express does</h2>
     <p class="section-desc">
-      lightblue's inference pipeline — CCG parsing, type checking, proof search — produces hundreds of
+      lightblue's inference pipeline — CCG/DTS parsing, type checking, proof search — produces hundreds of
       disambiguation paths. Express gives you interactive control at every step.
     </p>
 
@@ -181,13 +181,63 @@
     </div>
 
     <div id="live-demo" style="margin-top:3rem;margin-left:calc(50% - 50vw + 1.5rem);margin-right:calc(50% - 50vw + 1.5rem);">
-      <div style="text-align:center;margin-bottom:1.5rem;">
+      <div style="text-align:center;margin-bottom:2rem;">
         <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid #e2e8f0;border-radius:999px;padding:4px 16px 4px 10px;font-size:.85rem;color:#64748b;margin-bottom:.75rem;">
           <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:blink 1.2s infinite;"></span>
           Running on Hugging Face Spaces
         </span>
         <h3 style="font-size:2rem;font-weight:700;margin:0;">Try it live</h3>
         <p style="color:#64748b;margin:.5rem 0 0;">Interact with the real Express system — no installation needed.</p>
+        <p style="margin:.75rem 0 0;font-size:.85rem;color:#92400e;background:#fef3c7;display:inline-block;padding:4px 14px;border-radius:999px;border:1px solid #fde68a;">
+          Best viewed in <strong>Google Chrome</strong>
+        </p>
+      </div>
+
+      <!-- How-to guide -->
+      <div style="max-width:860px;margin:0 auto 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;">
+          <h4 style="margin:0 0 .75rem;font-size:.95rem;color:#0f172a;">Problem (JSeM #720)</h4>
+          <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+            <tr>
+              <td style="padding:.35rem .5rem .35rem 0;color:#64748b;white-space:nowrap;vertical-align:top;">Premise</td>
+              <td style="padding:.35rem 0;font-weight:600;">太郎が花子に泣かれた。</td>
+            </tr>
+            <tr>
+              <td style="padding:.35rem .5rem .35rem 0;color:#64748b;white-space:nowrap;vertical-align:top;">Hypothesis</td>
+              <td style="padding:.35rem 0;font-weight:600;">花子が泣いた。</td>
+            </tr>
+            <tr>
+              <td style="padding:.35rem .5rem .35rem 0;color:#64748b;white-space:nowrap;vertical-align:top;">Answer</td>
+              <td style="padding:.35rem 0;"><span style="background:#dcfce7;color:#166534;border-radius:4px;padding:2px 8px;font-size:.85rem;font-weight:600;">yes</span> — entailment</td>
+            </tr>
+            <tr>
+              <td style="padding:.35rem .5rem .35rem 0;color:#64748b;white-space:nowrap;vertical-align:top;">Type</td>
+              <td style="padding:.35rem 0;font-size:.85rem;color:#475569;">indirect passive (間接受身)</td>
+            </tr>
+          </table>
+          <p style="margin:.75rem 0 0;font-size:.82rem;color:#64748b;">
+            "Taro was adversely affected by Hanako's crying" entails "Hanako cried."
+            The indirect passive construction is the key inference step.
+          </p>
+        </div>
+
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;">
+          <h4 style="margin:0 0 .75rem;font-size:.95rem;color:#0f172a;">How to interact</h4>
+          <ol style="margin:0;padding-left:1.2rem;font-size:.88rem;color:#334155;display:flex;flex-direction:column;gap:.6rem;">
+            <li><strong>Wait</strong> for parsing to finish — each sentence is assigned multiple CCG/DTS parse candidates, reflecting syntactic ambiguity.</li>
+            <li><strong>Explore parse candidates</strong> for the premise and hypothesis. lightblue allows ambiguity, so there are multiple proof paths — and some combinations yield no proof.</li>
+            <li><strong>Run Typecheck</strong> on a parse. Parses with no unspecified arguments produce a single type-checked result; others may yield multiple.</li>
+            <li><strong>Run Prove</strong> to search for a proof that the hypothesis follows from the premise under the selected combination.</li>
+            <li>The verdict (<em>yes / no / unknown</em>) appears at the top.</li>
+          </ol>
+          <div style="margin-top:1rem;padding:.75rem 1rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:.82rem;color:#166534;">
+            <strong>Hint for this problem:</strong> A proof exists when you choose
+            <strong>Premise parse 1, Typecheck 1</strong> + <strong>Hypothesis parse 1, Typecheck 1</strong>.
+            Alternatively, <strong>Premise parse 4, Typecheck 1</strong> + <strong>Hypothesis parse 1, Typecheck 1</strong> also leads to a proof.
+          </div>
+        </div>
+
       </div>
       <iframe
         src="https://kohapizza-express.hf.space/inference"
@@ -407,7 +457,7 @@ export LIGHTBLUE=$(pwd)/
           <div class="step-text">
             <h3>Select a syntactic structure</h3>
             <p>
-              CCG parsing may produce multiple syntactic structures (e.g. due to
+              CCG/DTS parsing may produce multiple syntactic structures (e.g. due to
               prepositional phrase attachment ambiguity).
               Express displays each candidate as a collapsible card with its CCG type and
               DTS semantic representation.
